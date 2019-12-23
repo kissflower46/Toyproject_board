@@ -3,6 +3,7 @@ package com.toyproject.board;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,5 +31,17 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/board_insert");
 		return mav;
+	}
+	
+	@RequestMapping(value="/board_insertReg")
+	public int BoardInsertReg(BoardDTO boardDTO) {
+		logger.info("boardinsertReg");
+		try {
+			System.out.println(boardDTO.getTitle());
+			System.out.println(boardDTO.getContents());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }
