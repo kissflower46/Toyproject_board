@@ -1,14 +1,15 @@
 .DS_Store
 .metadata
-/dist
+Servers
+board/.settings
+board/target
+board/.classpath
+board/.project
+board/.springBeans
 
 # local env files
-.env.local
-.env.*.local
-.env.temp
 
 # Log files
-npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 

@@ -11,8 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BoardController {
 	
-	//@Autowired
-	//private BoardService boardService;
+	@Autowired
+	private BoardService boardService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
