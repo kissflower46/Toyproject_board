@@ -20,8 +20,11 @@
 					console.log('등록실패');
 				}
 			},
-			error: function() {
+			error: function(request,status,error) {
 				console.log('Controller접속 실패');
+				console.log(request);
+				console.log(status);
+				console.log(error);
 			}
 		});
 	}

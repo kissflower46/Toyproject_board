@@ -18,7 +18,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/")
 	public ModelAndView BoardList() {
-		System.out.println("ÇÑ±ÛƒÆÁö³ª");
+		System.out.println("ì¸ì½”ë”© Test");
 		logger.info("BoardList");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/board_list");
