@@ -6,7 +6,7 @@ board/target/
 board/.classpath
 board/.project
 board/.springBeans
-
+board/bin/
 # local env files
 
 # Log files

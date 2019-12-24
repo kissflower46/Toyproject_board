@@ -12,7 +12,7 @@ public class BoardDAOImpl implements BoardDAO{
 
 	@Override
 	public int BoardInsertReg(BoardDTO baordDTO) {
-		// TODO Auto-generated method stub
+		System.out.println("BoardDAOImpl 인코딩 Test");
 		return 0;
 	}
 	

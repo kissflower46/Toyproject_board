@@ -8,6 +8,7 @@ public class BoardDTO {
 		return title;
 	}
 	public void setTitle(String title) {
+		System.out.println("인코딩 Test");
 		this.title = title;
 	}
 	public String getContents() {

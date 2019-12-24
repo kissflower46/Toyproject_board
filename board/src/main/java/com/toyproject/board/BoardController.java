@@ -40,10 +40,8 @@ public class BoardController {
 		System.out.println(boardDTO.getTitle());
 		System.out.println(boardDTO.getContents());
 		insert_cnt = boardService.BoardInsertReg(boardDTO);
-		System.out.println("왜에러가 나는가?");
 		try {
 		} catch (Exception e) {
-			System.out.println("boardController > BoardInsertReg에서 에러발생");
 			e.printStackTrace();
 		}
 		return insert_cnt;

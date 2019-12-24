@@ -11,6 +11,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public int BoardInsertReg(BoardDTO boardDTO) {
+		System.out.println("인코딩 Test");
 		int insert_cnt = 0;
 		try {
 			insert_cnt = boardDAO.BoardInsertReg(boardDTO);
