@@ -2,7 +2,7 @@
 .metadata
 Servers
 board/.settings
-board/target
+board/target/
 board/.classpath
 board/.project
 board/.springBeans

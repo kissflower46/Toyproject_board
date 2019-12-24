@@ -36,12 +36,16 @@ public class BoardController {
 	@RequestMapping(value="/board_insertReg")
 	public int BoardInsertReg(BoardDTO boardDTO) {
 		logger.info("boardinsertReg");
+		int insert_cnt = 0;
+		System.out.println(boardDTO.getTitle());
+		System.out.println(boardDTO.getContents());
+		insert_cnt = boardService.BoardInsertReg(boardDTO);
+		System.out.println("왜에러가 나는가?");
 		try {
-			System.out.println(boardDTO.getTitle());
-			System.out.println(boardDTO.getContents());
 		} catch (Exception e) {
+			System.out.println("boardController > BoardInsertReg에서 에러발생");
 			e.printStackTrace();
 		}
-		return 0;
+		return insert_cnt;
 	}
 }
