@@ -2,6 +2,7 @@ package com.toyproject.board;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -10,8 +11,8 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO boardDAO;
 
 	@Override
+	@Transactional
 	public int BoardInsertReg(BoardDTO boardDTO) {
-		System.out.println("인코딩 Test");
 		int insert_cnt = 0;
 		try {
 			insert_cnt = boardDAO.BoardInsertReg(boardDTO);

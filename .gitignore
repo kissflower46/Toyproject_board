@@ -7,6 +7,7 @@ board/.classpath
 board/.project
 board/.springBeans
 board/bin/
+board/.sts4-cache/
 # local env files
 
 # Log files

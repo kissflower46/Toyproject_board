@@ -13,6 +13,7 @@
 			url: "./board_insertReg",
 			type: "post",
 			data: $("#board_insert").serialize(),
+			datatype: "html",
 			success: function(cnt){
 				if(cnt==1){
 					console.log('등록성공');
@@ -33,7 +34,7 @@
 <body>
 <div>
 	<h2>board insert</h2>
-	<form action="#" method="post" id="board_insert">
+	<form action="#" method="post" id="board_insert" enctype="multipart/form-data">
 	<table>
 		<tr>
 			<td>제목</td>

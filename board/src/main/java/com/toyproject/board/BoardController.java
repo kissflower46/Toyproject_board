@@ -18,7 +18,6 @@ public class BoardController {
 	
 	@RequestMapping(value="/")
 	public ModelAndView BoardList() {
-		System.out.println("인코딩 Test");
 		logger.info("BoardList");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/board_list");
@@ -27,7 +26,6 @@ public class BoardController {
 	
 	@RequestMapping(value="/board_insert")
 	public ModelAndView BoardInsert() {
-		System.out.println("board insert");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/board_insert");
 		return mav;
@@ -37,13 +35,16 @@ public class BoardController {
 	public int BoardInsertReg(BoardDTO boardDTO) {
 		logger.info("boardinsertReg");
 		int insert_cnt = 0;
-		System.out.println(boardDTO.getTitle());
-		System.out.println(boardDTO.getContents());
-		insert_cnt = boardService.BoardInsertReg(boardDTO);
 		try {
+			System.out.println(boardDTO.getTitle());
+			insert_cnt = boardService.BoardInsertReg(boardDTO);
+			System.out.println("Controller무사통과");
 		} catch (Exception e) {
+			System.out.println("여기 들어온다고? 1");
 			e.printStackTrace();
+			System.out.println("여기 들어온다고? 2");
 		}
+		System.out.println("도데체 뭔에러냐");
 		return insert_cnt;
 	}
 }
