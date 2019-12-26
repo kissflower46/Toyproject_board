@@ -40,5 +40,10 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.BoardUpdateReg(boardDTO);
 	}
 
+	@Override
+	public int BoardDelete(int board_no) {
+		return boardDAO.BoardDelete(board_no);
+	}
+
 	
 }

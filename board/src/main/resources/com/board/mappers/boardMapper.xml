@@ -27,4 +27,7 @@
 		update board set board_title=#{title}, board_contents=#{contents}, board_date=sysdate()
 		where board_no=${board_no}
 	</update>
+	<delete id="boardDelete" parameterType="int">
+		delete from board where board_no=#{board_no}
+	</delete>
 </mapper>

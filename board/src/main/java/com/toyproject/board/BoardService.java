@@ -8,4 +8,5 @@ public interface BoardService {
 	public List<Map<String, String>> BoardList();
 	public BoardDTO Board_detail(int board_no);
 	public int BoardUpdateReg(BoardDTO boardDTO);
+	public int BoardDelete(int board_no);
 }

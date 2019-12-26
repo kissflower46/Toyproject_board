@@ -96,4 +96,18 @@ public class BoardController {
 		}
 		return update_cnt;
 	}
+	
+	@RequestMapping(value="/board_del")
+	@ResponseBody
+	public int board_del(@RequestParam("board_no") int board_no) {
+		logger.info("board_del");
+		int delete_cnt = 0;
+		try {
+			System.out.println(board_no);
+			delete_cnt = boardService.BoardDelete(board_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return delete_cnt;
+	}
 }

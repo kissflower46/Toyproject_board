@@ -35,5 +35,10 @@ public class BoardDAOImpl implements BoardDAO{
 	public int BoardUpdateReg(BoardDTO boardDTO) {
 		return sqlsession.update(BoardMapper+".boardupdate", boardDTO);
 	}
+
+	@Override
+	public int BoardDelete(int board_no) {
+		return sqlsession.delete(BoardMapper+".boardDelete", board_no);
+	}
 	
 }
