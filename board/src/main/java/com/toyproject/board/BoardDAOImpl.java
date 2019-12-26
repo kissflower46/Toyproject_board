@@ -30,5 +30,10 @@ public class BoardDAOImpl implements BoardDAO{
 	public BoardDTO Board_detail(int board_no) {
 		return sqlsession.selectOne(BoardMapper+".boarddetail", board_no);
 	}
+
+	@Override
+	public int BoardUpdateReg(BoardDTO boardDTO) {
+		return sqlsession.update(BoardMapper+".boardupdate", boardDTO);
+	}
 	
 }

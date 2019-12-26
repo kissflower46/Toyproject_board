@@ -35,5 +35,10 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.Board_detail(board_no);
 	}
 
+	@Override
+	public int BoardUpdateReg(BoardDTO boardDTO) {
+		return boardDAO.BoardUpdateReg(boardDTO);
+	}
+
 	
 }

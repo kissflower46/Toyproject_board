@@ -70,4 +70,30 @@ public class BoardController {
 		}
 		return mav;
 	}
+	
+	@RequestMapping(value="/board_update")
+	public ModelAndView board_update(@RequestParam("board_no") int board_no) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("board/board_update");
+		try {
+			BoardDTO board_detail = boardService.Board_detail(board_no);
+			mav.addObject("board_detail", board_detail);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value="/board_updateReg")
+	@ResponseBody
+	public int board_updateReg(BoardDTO boardDTO) {
+		logger.info("updateReg");
+		int update_cnt = 0;
+		try {
+			update_cnt = boardService.BoardUpdateReg(boardDTO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return update_cnt;
+	}
 }

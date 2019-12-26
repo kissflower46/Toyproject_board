@@ -8,4 +8,5 @@ public interface BoardDAO {
 	public int BoardInsertReg(BoardDTO baordDTO);
 	public List<Map<String, String>> BoardList();
 	public BoardDTO Board_detail(int board_no);
+	public int BoardUpdateReg(BoardDTO boardDTO);
 }

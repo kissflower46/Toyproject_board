@@ -23,4 +23,8 @@
 			,board_date as "board_date" 
 		from board where board_no=#{board_no}
 	</select>
+	<update id="boardupdate" parameterType="com.toyproject.board.BoardDTO">
+		update board set board_title=#{title}, board_contents=#{contents}, board_date=sysdate()
+		where board_no=${board_no}
+	</update>
 </mapper>

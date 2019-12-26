@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -21,8 +21,10 @@
 			</tr>
 		</table>
 		<div>
-			
+			<button onclick="location.href='./board_update?board_no=${board_detail.board_no}'">수정하기</button>
+			<button onclick="javascript:alert('아직 미구현')">삭제하기</button>
 		</div>
+		memo : 누군가 여기 들어오기전에 글을삭제했을때, 글을 수정하거나 삭제할때 예외처리
 	</div>
 </body>
 </html>
