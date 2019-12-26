@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,7 +29,6 @@ public class BoardController {
 		try {
 			List<Map<String, String>> boardList = boardService.BoardList();
 			mav.addObject("boardList", boardList);
-			System.out.println(boardList.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -55,5 +55,19 @@ public class BoardController {
 			e.printStackTrace();
 		}
 		return insert_cnt;
+	}
+	
+	@RequestMapping(value="/boardDetail")
+	public ModelAndView boardDetail(@RequestParam("board_no") int board_no) {
+		logger.info("BoardDetail");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("board/board_detail");
+		try {
+			BoardDTO board_detail = boardService.Board_detail(board_no);
+			mav.addObject("board_detail", board_detail);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mav;
 	}
 }

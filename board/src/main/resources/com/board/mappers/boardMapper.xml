@@ -15,7 +15,12 @@
 			,board_date as "board_date"
 		from board
 	</select>
-	<select id="test" resultType="int">
-		select count(*) from board
+	<select id="boarddetail" resultType="com.toyproject.board.BoardDTO" parameterType="int">
+		select
+			board_no as "board_no"
+			,board_title as "title"
+			,board_contents as "contents"
+			,board_date as "board_date" 
+		from board where board_no=#{board_no}
 	</select>
 </mapper>

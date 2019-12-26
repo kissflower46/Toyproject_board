@@ -6,6 +6,10 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+
+<script>
+</script>
+
 </head>
 <body>
 
@@ -18,10 +22,10 @@
 			<td>date</td>
 		</tr>
 		<c:forEach items="${boardList}" var="board">
-			<tr>
+			<tr style="cursor:pointer" onclick="location.href='./boardDetail?board_no=${board.board_no}'">
 				<td>${board.board_no}</td>
 				<td>${board.title}</td>
-				<td>${board.board_date}</td>			
+				<td>${board.board_date}</td>
 			</tr>
 		</c:forEach>
 	</table>

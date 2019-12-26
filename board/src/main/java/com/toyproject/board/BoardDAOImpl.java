@@ -25,5 +25,10 @@ public class BoardDAOImpl implements BoardDAO{
 	public List<Map<String, String>> BoardList() {
 		return sqlsession.selectList(BoardMapper+".boardlist");
 	}
+
+	@Override
+	public BoardDTO Board_detail(int board_no) {
+		return sqlsession.selectOne(BoardMapper+".boarddetail", board_no);
+	}
 	
 }
