@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +17,13 @@
 			<td>title</td>
 			<td>date</td>
 		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>			
-		</tr>
+		<c:forEach items="${boardList}" var="board">
+			<tr>
+				<td>${board.board_no}</td>
+				<td>${board.title}</td>
+				<td>${board.board_date}</td>			
+			</tr>
+		</c:forEach>
 	</table>
 	<div style="margin-top:10px;">
 		<button onclick="location.href='./board_insert'">[±Û¾²±â]</button>

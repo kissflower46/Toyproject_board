@@ -1,6 +1,9 @@
 package com.toyproject.board;
 
+import java.util.List;
+import java.util.Map;
+
 public interface BoardService {
 	public int BoardInsertReg(BoardDTO boardDTO);
-	//인코딩Test
+	public List<Map<String, String>> BoardList();
 }

@@ -1,5 +1,8 @@
 package com.toyproject.board;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,5 +24,11 @@ public class BoardServiceImpl implements BoardService {
 		}
 		return insert_cnt;
 	}
+
+	@Override
+	public List<Map<String, String>> BoardList() {
+		return boardDAO.BoardList();
+	}
+
 	
 }

@@ -1,6 +1,9 @@
 package com.toyproject.board;
 
 
+import java.util.List;
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,11 +14,16 @@ public class BoardDAOImpl implements BoardDAO{
 	@Autowired
 	private SqlSessionTemplate sqlsession;
 	
-	private final static String BoardMapper = "com.toyproject.board.boardMapper";
+	private final static String BoardMapper = "com.board.mappers.boardMapper";
 
 	@Override
 	public int BoardInsertReg(BoardDTO boardDTO) {
 		return sqlsession.insert(BoardMapper+".insertboard", boardDTO);
+	}
+
+	@Override
+	public List<Map<String, String>> BoardList() {
+		return sqlsession.selectList(BoardMapper+".boardlist");
 	}
 	
 }
