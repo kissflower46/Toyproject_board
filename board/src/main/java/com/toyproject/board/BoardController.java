@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,13 +43,12 @@ public class BoardController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/board_insertReg")
+	@RequestMapping(value="/board_insertReg",method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public int BoardInsertReg(BoardDTO boardDTO) {
 		logger.info("boardinsertReg");
 		int insert_cnt = 0;
 		try {
-			System.out.println(boardDTO.getTitle());
 			insert_cnt = boardService.BoardInsertReg(boardDTO);
 			System.out.println("DB에는 들어갔는데..ResponseBody?");
 		} catch (Exception e) {
@@ -84,7 +84,7 @@ public class BoardController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/board_updateReg")
+	@RequestMapping(value="/board_updateReg",method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public int board_updateReg(BoardDTO boardDTO) {
 		logger.info("updateReg");
@@ -97,13 +97,12 @@ public class BoardController {
 		return update_cnt;
 	}
 	
-	@RequestMapping(value="/board_del")
+	@RequestMapping(value="/board_del",method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public int board_del(@RequestParam("board_no") int board_no) {
 		logger.info("board_del");
 		int delete_cnt = 0;
 		try {
-			System.out.println(board_no);
 			delete_cnt = boardService.BoardDelete(board_no);
 		} catch (Exception e) {
 			e.printStackTrace();

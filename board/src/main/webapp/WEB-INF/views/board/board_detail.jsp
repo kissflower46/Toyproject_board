@@ -24,7 +24,7 @@
 					} else {
 						console.log('삭제실패');
 					}
-					location.href="./board_del?board_no=${board_detail.board_no}";
+					location.href="./";
 				},
 				error: function(request,status,error) {
 					console.log('Controller접속 실패');

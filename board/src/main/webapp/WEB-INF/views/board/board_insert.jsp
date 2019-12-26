@@ -20,6 +20,7 @@
 				} else {
 					console.log('등록실패');
 				}
+				location.href="./";
 			},
 			error: function(request,status,error) {
 				console.log('Controller접속 실패');

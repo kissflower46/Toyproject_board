@@ -20,6 +20,7 @@
 				} else {
 					console.log('수정실패');
 				}
+				location.href="./boardDetail?board_no=${board_detail.board_no}";
 			},
 			error: function(request,status,error) {
 				console.log('Controller접속 실패');
