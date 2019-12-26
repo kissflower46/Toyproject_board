@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -16,15 +16,15 @@
 			dataType: "html",
 			success: function(cnt){
 				if(cnt==1){
-					console.log('荐沥己傍');
+					console.log('靾橃爼靹标车');
 				} else {
-					console.log('荐沥角菩');
+					console.log('靾橃爼鞁ろ尐');
 				}
 				location.href="./boardDetail?board_no=${board_detail.board_no}";
 			},
 			error: function(request,status,error) {
 				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-				console.log('Controller立加 角菩');
+				console.log('Controller鞝戩啀 鞁ろ尐');
 				console.log(request);
 				console.log(status);
 				console.log(error);
@@ -39,15 +39,15 @@
 	<input type="hidden" name="board_no" value="${board_detail.board_no}">
 	<table>
 		<tr>
-			<td>力格</td>
+			<td>鞝滊</td>
 			<td><input type="text" name="title" value="${board_detail.title}" required></td>
 		</tr>
 		<tr>
-			<td>郴侩</td>
+			<td>雮挫毄</td>
 			<td><textarea name="contents" required>${board_detail.contents}</textarea></td>
 		</tr>
 	</table>
 	</form>
-	<div><button onclick="boardupdate();">荐沥</button></div>
+	<div><button onclick="boardupdate();">靾橃爼</button></div>
 </body>
 </html>

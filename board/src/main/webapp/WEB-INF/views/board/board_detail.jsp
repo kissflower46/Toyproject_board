@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@
 <script src="/board/resources/jquery-1.11.0.min.js"></script>
 <script>
 	function board_del(board_no) {
-		var del_chk = confirm('Á¤¸»·Î »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?');
+		var del_chk = confirm('ì •ë§ë¡œ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?');
 		if(del_chk){
 			$.ajax({
 				url: "./board_del?board_no=${board_detail.board_no}",
@@ -18,15 +18,15 @@
 				data: "${board_detail.board_no}",
 				success: function(cnt) {
 					if(cnt==1){
-						console.log('»èÁ¦¼º°ø');
+						console.log('ì‚­ì œì„±ê³µ');
 					} else {
-						console.log('»èÁ¦½ÇÆĞ');
+						console.log('ì‚­ì œì‹¤íŒ¨');
 					}
 					location.href="./";
 				},
 				error: function(request,status,error) {
 					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-					console.log('ControllerÁ¢¼Ó ½ÇÆĞ');
+					console.log('Controllerì ‘ì† ì‹¤íŒ¨');
 					console.log(request);
 					console.log(status);
 					console.log(error);
@@ -40,20 +40,20 @@
 	<div>
 		<table border="1" cellpadding="3" cellspacing="0">
 			<tr>
-				<td>Á¦¸ñ</td><td>${board_detail.title}</td>
+				<td>ì œëª©</td><td>${board_detail.title}</td>
 			</tr>
 			<tr>
-				<td>³»¿ë</td><td>${board_detail.contents}</td>
+				<td>ë‚´ìš©</td><td>${board_detail.contents}</td>
 			</tr>
 			<tr>
-				<td>ÀÛ¼ºÀÏ</td><td>${board_detail.board_date}</td>
+				<td>ì‘ì„±ì¼</td><td>${board_detail.board_date}</td>
 			</tr>
 		</table>
 		<div>
-			<button onclick="location.href='./board_update?board_no=${board_detail.board_no}'">¼öÁ¤ÇÏ±â</button>
-			<button onclick="board_del(${board_detail.board_no})">»èÁ¦ÇÏ±â</button>
+			<button onclick="location.href='./board_update?board_no=${board_detail.board_no}'">ìˆ˜ì •í•˜ê¸°</button>
+			<button onclick="board_del(${board_detail.board_no})">ì‚­ì œí•˜ê¸°</button>
 		</div>
-		memo : ´©±º°¡ ¿©±â µé¾î¿À±âÀü¿¡ ±ÛÀ»»èÁ¦ÇßÀ»¶§, ±ÛÀ» ¼öÁ¤ÇÏ°Å³ª »èÁ¦ÇÒ¶§ ¿¹¿ÜÃ³¸®
+		memo : ëˆ„êµ°ê°€ ì—¬ê¸° ë“¤ì–´ì˜¤ê¸°ì „ì— ê¸€ì„ì‚­ì œí–ˆì„ë•Œ, ê¸€ì„ ìˆ˜ì •í•˜ê±°ë‚˜ ì‚­ì œí• ë•Œ ì˜ˆì™¸ì²˜ë¦¬
 	</div>
 </body>
 </html>
