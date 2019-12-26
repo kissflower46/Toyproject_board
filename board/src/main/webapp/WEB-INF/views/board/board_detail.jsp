@@ -14,10 +14,8 @@
 			$.ajax({
 				url: "./board_del?board_no=${board_detail.board_no}",
 				type: "post",
-				data: function(){ 
-					alert("${board_detail.board_no}");
-					return "${board_detail.board_no}";
-				},
+				dataType: "html",
+				data: "${board_detail.board_no}",
 				success: function(cnt) {
 					if(cnt==1){
 						console.log('昏力己傍');
@@ -27,6 +25,7 @@
 					location.href="./";
 				},
 				error: function(request,status,error) {
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 					console.log('Controller立加 角菩');
 					console.log(request);
 					console.log(status);

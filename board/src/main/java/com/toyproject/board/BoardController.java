@@ -50,7 +50,6 @@ public class BoardController {
 		int insert_cnt = 0;
 		try {
 			insert_cnt = boardService.BoardInsertReg(boardDTO);
-			System.out.println("DB에는 들어갔는데..ResponseBody?");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

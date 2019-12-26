@@ -13,7 +13,7 @@
 			url: "./board_insertReg",
 			type: "post",
 			data: $("#board_insert").serialize(),
-			datatype: "html",
+			dataType: "html",
 			success: function(cnt){
 				if(cnt==1){
 					console.log('등록성공');
@@ -23,6 +23,7 @@
 				location.href="./";
 			},
 			error: function(request,status,error) {
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 				console.log('Controller접속 실패');
 				console.log(request);
 				console.log(status);

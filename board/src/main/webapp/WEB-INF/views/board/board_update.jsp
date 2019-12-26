@@ -13,7 +13,7 @@
 			url: "./board_updateReg",
 			type: "post",
 			data: $("#board_updateReg").serialize(),
-			datatype: "html",
+			dataType: "html",
 			success: function(cnt){
 				if(cnt==1){
 					console.log('수정성공');
@@ -23,6 +23,7 @@
 				location.href="./boardDetail?board_no=${board_detail.board_no}";
 			},
 			error: function(request,status,error) {
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 				console.log('Controller접속 실패');
 				console.log(request);
 				console.log(status);
