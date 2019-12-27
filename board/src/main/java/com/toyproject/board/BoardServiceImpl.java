@@ -17,11 +17,9 @@ public class BoardServiceImpl implements BoardService {
 	@Transactional
 	public int BoardInsertReg(BoardDTO boardDTO) {
 		int insert_cnt = 0;
-		try {
-			insert_cnt = boardDAO.BoardInsertReg(boardDTO);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		insert_cnt = boardDAO.BoardInsertReg(boardDTO);
+		
+		//insert_cnt = boardDAO.BoardInsertReg(null);	//transaction 테스트용
 		return insert_cnt;
 	}
 
