@@ -50,8 +50,6 @@ public class BoardController {
 	public String BoardInsertReg(@ModelAttribute BoardDTO boardDTO) {
 		logger.info("boardinsertReg");
 		try {
-			System.out.println(boardDTO.getTitle());
-			//System.out.println(req.getParameter("title"));
 			boardService.BoardInsertReg(boardDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -73,7 +71,7 @@ public class BoardController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/board_update",method=RequestMethod.POST, produces="application/json;charset=UTF-8")
+	@RequestMapping(value="/board_update",method=RequestMethod.GET, produces="application/json;charset=UTF-8")
 	public ModelAndView board_update(@RequestParam("board_no") int board_no) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/board_update");
