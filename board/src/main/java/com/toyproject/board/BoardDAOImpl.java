@@ -22,7 +22,7 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
-	public List<Map<String, String>> BoardList() {
+	public List<BoardDTO> BoardList() {
 		return sqlsession.selectList(BoardMapper+".boardlist");
 	}
 

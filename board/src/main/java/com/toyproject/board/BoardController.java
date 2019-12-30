@@ -4,10 +4,14 @@ package com.toyproject.board;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,13 +26,13 @@ public class BoardController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="/",method=RequestMethod.GET, produces="application/json;charset=UTF-8")
 	public ModelAndView BoardList() {
 		logger.info("BoardList");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/board_list");
 		try {
-			List<Map<String, String>> boardList = boardService.BoardList();
+			List<BoardDTO> boardList = boardService.BoardList();
 			mav.addObject("boardList", boardList);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -36,27 +40,26 @@ public class BoardController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/board_insert")
-	public ModelAndView BoardInsert() {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("board/board_insert");
-		return mav;
+	@RequestMapping(value="/board_insert",method=RequestMethod.GET, produces="application/json;charset=UTF-8")
+	public String BoardInsert() {
+		logger.info("board_insert");
+		return "board/board_insert";
 	}
 	
-	@RequestMapping(value="/board_insertReg",method=RequestMethod.POST, produces="application/json;charset=UTF-8")
-	@ResponseBody
-	public int BoardInsertReg(BoardDTO boardDTO) {
+	@RequestMapping(value="/board_insertReg",method=RequestMethod.POST)
+	public String BoardInsertReg(@ModelAttribute BoardDTO boardDTO) {
 		logger.info("boardinsertReg");
-		int insert_cnt = 0;
 		try {
-			insert_cnt = boardService.BoardInsertReg(boardDTO);
+			System.out.println(boardDTO.getTitle());
+			//System.out.println(req.getParameter("title"));
+			boardService.BoardInsertReg(boardDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return insert_cnt;
+		return "redirect:/";
 	}
 	
-	@RequestMapping(value="/boardDetail")
+	@RequestMapping(value="/boardDetail",method=RequestMethod.GET, produces="application/json;charset=UTF-8")
 	public ModelAndView boardDetail(@RequestParam("board_no") int board_no) {
 		logger.info("BoardDetail");
 		ModelAndView mav = new ModelAndView();
@@ -70,7 +73,7 @@ public class BoardController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/board_update")
+	@RequestMapping(value="/board_update",method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	public ModelAndView board_update(@RequestParam("board_no") int board_no) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/board_update");
@@ -84,7 +87,6 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/board_updateReg",method=RequestMethod.POST, produces="application/json;charset=UTF-8")
-	@ResponseBody
 	public int board_updateReg(BoardDTO boardDTO) {
 		logger.info("updateReg");
 		int update_cnt = 0;

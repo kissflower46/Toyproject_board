@@ -15,16 +15,15 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	@Transactional
-	public int BoardInsertReg(BoardDTO boardDTO) {
+	public void BoardInsertReg(BoardDTO boardDTO) {
 		int insert_cnt = 0;
 		insert_cnt = boardDAO.BoardInsertReg(boardDTO);
-		
+		System.out.println(insert_cnt);
 		//insert_cnt = boardDAO.BoardInsertReg(null);	//transaction 테스트용
-		return insert_cnt;
 	}
 
 	@Override
-	public List<Map<String, String>> BoardList() {
+	public List<BoardDTO> BoardList() {
 		return boardDAO.BoardList();
 	}
 

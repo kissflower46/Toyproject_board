@@ -8,7 +8,7 @@
 <script src="/board/resources/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
 
-	function boardinsert(){
+	/*function boardinsert() {
 		$.ajax({
 			url: "./board_insertReg",
 			type: "post",
@@ -30,13 +30,13 @@
 				console.log(error);
 			}
 		});
-	}
+	}*/
 </script>
 </head>
 <body>
 <div>
 	<h2>board insert</h2>
-	<form action="#" method="post" id="board_insert" enctype="multipart/form-data">
+	<form action="./board_insertReg" method="post" id="board_insert">
 	<table>
 		<tr>
 			<td>제목</td>
@@ -47,8 +47,8 @@
 			<td><textarea name="contents" required></textarea></td>
 		</tr>
 	</table>
+	<div><input type="submit" value="저장"></div>
 	</form>
-	<div><button onclick="boardinsert();">저장</button></div>
 </div>
 </body>
 </html>
