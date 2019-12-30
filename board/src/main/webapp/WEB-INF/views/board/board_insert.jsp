@@ -1,57 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-		 pageEncoding="UTF-8" %>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<script src="/board/resources/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/board/resources/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
 
-        function boardinsert() {
-            $.ajax({
-                url: "./board_insertReg",
-                type: "post",
-                data: $("#board_insert").serialize(),
-                dataType: "html",
-                success: function (cnt) {
-                    if (cnt == 1) {
-                        console.log('등록성공');
-                    } else {
-                        console.log('등록실패');
-                    }
-                    location.href = "./";
-                },
-                error: function (request, status, error) {
-                    alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
-                    console.log('Controller접속 실패');
-                    console.log(request);
-                    console.log(status);
-                    console.log(error);
-                }
-            });
-        }
-	</script>
+	/*function boardinsert() {
+		$.ajax({
+			url: "./board_insertReg",
+			type: "post",
+			data: $("#board_insert").serialize(),
+			dataType: "html",
+			success: function(cnt){
+				if(cnt==1){
+					console.log('등록성공');
+				} else {
+					console.log('등록실패');
+				}
+				location.href="./";
+			},
+			error: function(request,status,error) {
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				console.log('Controller접속 실패');
+				console.log(request);
+				console.log(status);
+				console.log(error);
+			}
+		});
+	}*/
+</script>
 </head>
 <body>
 <div>
 	<h2>board insert</h2>
-	<form action="/board/board_insertReg" method="post" id="board_insert" enctype="multipart/form-data">
-		<table>
-			<tr>
-				<td>제목</td>
-				<td><input type="text" name="title" required></td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td><textarea name="contents" required></textarea></td>
-			</tr>
-		</table>
-		<div>
-			<button type="submit">저장</button>
-		</div>
+	<form action="./board_insertReg" method="post" id="board_insert">
+	<table>
+		<tr>
+			<td>제목</td>
+			<td><input type="text" name="title" required></td>
+		</tr>
+		<tr>
+			<td>내용</td>
+			<td><textarea name="contents" required></textarea></td>
+		</tr>
+	</table>
+	<div><input type="submit" value="저장"></div>
 	</form>
-
 </div>
 </body>
 </html>

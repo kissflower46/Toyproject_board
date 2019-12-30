@@ -22,7 +22,7 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
-	public List<Map<String, String>> BoardList() {
+	public List<BoardDTO> BoardList() {
 		return sqlsession.selectList(BoardMapper+".boardlist");
 	}
 
@@ -33,6 +33,7 @@ public class BoardDAOImpl implements BoardDAO{
 
 	@Override
 	public int BoardUpdateReg(BoardDTO boardDTO) {
+		System.out.println(boardDTO.getBoard_no());
 		return sqlsession.update(BoardMapper+".boardupdate", boardDTO);
 	}
 

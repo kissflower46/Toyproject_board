@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="/board/resources/jquery-1.11.0.min.js"></script>
 <script>
 	function board_del(board_no) {
 		var del_chk = confirm('정말로 삭제하시겠습니까?');
 		if(del_chk){
-			$.ajax({
+			document.board_delete.submit();
+			/*$.ajax({
 				url: "./board_del?board_no=${board_detail.board_no}",
 				type: "post",
 				dataType: "html",
@@ -31,7 +31,7 @@
 					console.log(status);
 					console.log(error);
 				}
-			});
+			});*/
 		}
 	}
 </script>
@@ -52,8 +52,13 @@
 		<div>
 			<button onclick="location.href='./board_update?board_no=${board_detail.board_no}'">수정하기</button>
 			<button onclick="board_del(${board_detail.board_no})">삭제하기</button>
+			<button onclick="location.href='./'">리스트버튼</button>			
 		</div>
+		<form action="./board_del" name="board_delete" method="post">
+			<input type="hidden" name="board_no" value="${board_detail.board_no}">
+		</form>
 		memo : 누군가 여기 들어오기전에 글을삭제했을때, 글을 수정하거나 삭제할때 예외처리
 	</div>
 </body>
 </html>
+
