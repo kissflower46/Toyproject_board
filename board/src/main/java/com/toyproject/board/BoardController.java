@@ -85,27 +85,30 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/board_updateReg",method=RequestMethod.POST, produces="application/json;charset=UTF-8")
-	public int board_updateReg(BoardDTO boardDTO) {
+	public String board_updateReg(@ModelAttribute BoardDTO boardDTO) {
 		logger.info("updateReg");
 		int update_cnt = 0;
 		try {
 			update_cnt = boardService.BoardUpdateReg(boardDTO);
+			
+			System.out.println(update_cnt);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return update_cnt;
+		return "redirect:/boardDetail?board_no="+boardDTO.getBoard_no();
 	}
 	
 	@RequestMapping(value="/board_del",method=RequestMethod.POST, produces="application/json;charset=UTF-8")
-	@ResponseBody
-	public int board_del(@RequestParam("board_no") int board_no) {
+	public String board_del(@RequestParam("board_no") int board_no) {
 		logger.info("board_del");
 		int delete_cnt = 0;
 		try {
+			System.out.println(board_no);
 			delete_cnt = boardService.BoardDelete(board_no);
+			System.out.println(delete_cnt);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return delete_cnt;
+		return "redirect:/";
 	}
 }

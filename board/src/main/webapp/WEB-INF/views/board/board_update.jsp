@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="/board/resources/jquery-1.11.0.min.js"></script>
 <script>
 	function boardupdate(){
-		$.ajax({
+		document.board_updateReg.submit();
+		/*$.ajax({
 			url: "./board_updateReg",
 			type: "post",
 			data: $("#board_updateReg").serialize(),
@@ -29,13 +29,13 @@
 				console.log(status);
 				console.log(error);
 			}
-		});
+		});*/
 	}
 </script>
 </head>
 <body>
 	<h2>board update</h2>
-	<form action="#" method="post" id="board_updateReg" enctype="multipart/form-data">
+	<form action="./board_updateReg" method="post" name="board_updateReg">
 	<input type="hidden" name="board_no" value="${board_detail.board_no}">
 	<table>
 		<tr>
