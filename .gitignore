@@ -1,13 +1,17 @@
 .DS_Store
 .metadata
 /dist
-/board/target/
+/board/.settings
+
+*/target/*
+*/target/**
+/Servers/
 
 # local env files
 .env.local
 .env.*.local
 .env.temp
-/Servers/
+
 
 # Log files
 npm-debug.log*
@@ -25,3 +29,4 @@ yarn-error.log*
 
 *.sh
 *.css.map
+/board/
