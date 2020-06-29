@@ -28,7 +28,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/",method=RequestMethod.GET, produces="application/json;charset=UTF-8")
 	public ModelAndView BoardList() {
-		logger.info("BoardList");
+		logger.info(" == BoardList == ");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/board_list");
 		try {

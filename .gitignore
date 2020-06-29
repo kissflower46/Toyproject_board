@@ -1,6 +1,7 @@
 .DS_Store
 .metadata
-Servers
+<<<<<<< HEAD
+/Servers/
 board/.settings
 board/target/
 board/.classpath
@@ -9,6 +10,7 @@ board/.springBeans
 board/bin/
 board/.sts4-cache/
 # local env files
+
 
 # Log files
 yarn-debug.log*
@@ -25,3 +27,4 @@ yarn-error.log*
 
 *.sh
 *.css.map
+/board/
