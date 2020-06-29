@@ -17,8 +17,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/")
 	public ModelAndView BoardList() {
-		System.out.println("한글꺠지나");
-		logger.info("BoardList");
+		logger.info(" == BoardList == ");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/board_list");
 		return mav;

@@ -1,11 +1,13 @@
 .DS_Store
 .metadata
 /dist
+/board/target/
 
 # local env files
 .env.local
 .env.*.local
 .env.temp
+/Servers/
 
 # Log files
 npm-debug.log*
